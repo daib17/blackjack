@@ -9,6 +9,8 @@
     "scripts": {
         "test": "nyc --reporter=html --reporter=text mocha 'test/**/*.js'",
         "eslint": "eslint .",
+        "report-coveralls": "nyc report --reporter=text-lcov | coveralls",
+        "report-codecov": "nyc report --reporter=lcov > coverage.lcov && codecov",
         "docker-latest": "docker-compose run node_alpine npm test",
         "docker-8": "docker-compose run node_8_alpine npm test",
         "docker-6": "docker-compose run node_6_alpine npm test",
@@ -19,6 +21,8 @@
     "author": "Mikael Roos",
     "license": "MIT",
     "devDependencies": {
+        "codecov": "^3.2.0",
+        "coveralls": "^3.0.3",
         "eslint": "^5.14.1",
         "eslint-plugin-flowtype": "^3.4.2",
         "eslint-plugin-import": "^2.16.0",
