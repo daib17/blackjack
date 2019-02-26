@@ -1,0 +1,34 @@
+{
+    "name": "black-jack",
+    "version": "1.0.0",
+    "description": "A game of Black Jack to try out testing.",
+    "main": null,
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "test": "nyc --reporter=html --reporter=text mocha 'test/**/*.js'",
+        "posttest": "npm run eslint",
+        "eslint": "eslint .",
+        "docker-latest": "docker-compose run node_alpine npm test",
+        "docker-8": "docker-compose run node_8_alpine npm test",
+        "docker-6": "docker-compose run node_6_alpine npm test",
+        "clean": "rm -rf npm-debug.log coverage .nyc_output",
+        "preclean-all": "npm run clean",
+        "clean-all": "rm -rf node_modules"
+    },
+    "author": "Mikael Roos",
+    "license": "MIT",
+    "devDependencies": {
+        "eslint": "^5.14.1",
+        "eslint-plugin-flowtype": "^3.4.2",
+        "eslint-plugin-import": "^2.16.0",
+        "eslint-plugin-jsx-a11y": "^6.2.1",
+        "eslint-plugin-react": "^7.12.4",
+        "eslint-plugin-vue": "^5.2.2",
+        "javascript-style-guide": "^0.9.10",
+        "mocha": "^4.0.1",
+        "nyc": "^11.2.1"
+    },
+    "dependencies": {}
+}
